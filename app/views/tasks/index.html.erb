@@ -1,0 +1,13 @@
+<h1>TO DO LIST</h1>
+<p>
+  <%= link_to 'Create Task', new_task_path %>
+</p>
+<% @tasks.order('rank ASC').each do |task| %>
+<h2><%= task.title %></h2>
+<ol style="list-style: none; display: inline-block" >
+  <li><%= link_to 'Tasks', task_path(task), class: "btn btn-primary"%></li>
+  <li><%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary"%></li>
+  <li><%= link_to 'Delete', task_path(task), method: :delete,  class: "btn btn-primary"%></li>
+</ol>
+
+<% end %>
